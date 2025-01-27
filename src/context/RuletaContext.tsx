@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from 'react';
-import { getRandomPrize,prizeOptions } from '../utils/wheelUtils';
+import { getRandomPrize,prizeOptions as initialPrizeOptions } from '../utils/wheelUtils';
 
 interface WheelContextType {
     mustSpin: boolean;
@@ -9,6 +9,8 @@ interface WheelContextType {
     setMustSpin: (value: boolean) => void;
     showWheel: boolean;
     setShowWheel: (value: boolean) => void;
+    updatePrizeOptions: (updatedData: { option: string, probability: number, quantity?: number }[]) => void;
+
 }
 
 const WheelContext = createContext<WheelContextType | null>(null);
@@ -23,20 +25,24 @@ export const WheelProvider = ({ children }: { children: ReactNode }) => {
     const [mustSpin, setMustSpin] = useState(false);
     const [prizeNumber, setPrizeNumber] = useState(0);
     const [showWheel, setShowWheel] = useState(false);
+    const [data, setData] = useState(initialPrizeOptions);
 
     const handleSpinClick = async () => {
 
         if (!mustSpin) {
-            const newPrizeNumber = getRandomPrize(prizeOptions);
+            const newPrizeNumber = getRandomPrize(data);
             setPrizeNumber(newPrizeNumber);
             setMustSpin(true);
         }
     };
+    const updatePrizeOptions = (updatedData: { option: string, probability: number, quantity?: number }[]) => {
+        setData(updatedData);
+    };
 
     return (
         <WheelContext.Provider value={{
-            mustSpin, prizeNumber, handleSpinClick, data: prizeOptions, setMustSpin, showWheel,
-            setShowWheel
+            mustSpin, prizeNumber, handleSpinClick, data: data, setMustSpin, showWheel,
+            setShowWheel,updatePrizeOptions
         }}>
             {children}
         </WheelContext.Provider>
