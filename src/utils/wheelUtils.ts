@@ -1,10 +1,10 @@
 export const prizeOptions = [
-    { option: 'Cupon Descuento', probability: 0.10, quantity: 5 },
-    { option: 'Pañuelo', probability: 0.10, quantity: 5 },
-    { option: 'Piluso', probability: 0.10, quantity: 5 },
-    { option: 'Segui participando', probability: 0.325 },
-    { option: 'Año Gratis', probability: 0.05, quantity: 5 },
-    { option: 'Segui participando', probability: 0.325 },
+    { option: 'Cupon Descuento', probability: 0.10, quantity: 5, image: {uri:"/cupon20.png",sizeMultiplier:3,offsetX:5} },
+    { option: 'Pañuelo', probability: 0.10, quantity: 5 , image: {uri:"/pañuelo.png",sizeMultiplier:3,offsetX:5}},
+    { option: 'Piluso', probability: 0.10, quantity: 5 ,  image: {uri:"/australiano.png",sizeMultiplier:3,offsetX:5}},
+    { option: 'Segui participando', probability: 0.325 , image: {uri:"/sigueparticipando.png",sizeMultiplier:3, offsetX:5}},
+    { option: 'Año Gratis', probability: 0.05, quantity: 5 ,image: {uri:"/ginHerederoBotella.png",sizeMultiplier:3, offsetX:5}},
+    { option: 'Segui participando', probability: 0.325, image: {uri:"/sigueparticipando.png",sizeMultiplier:3, offsetX:5} },
 ];
 
 export const getRandomPrize = (data: { option: string; probability: number; quantity?: number }[]) => {

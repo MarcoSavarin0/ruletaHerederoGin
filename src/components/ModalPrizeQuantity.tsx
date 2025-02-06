@@ -3,8 +3,9 @@ import React, { useState } from 'react';
 type Props = {
     isOpen: boolean;
     onClose: () => void;
-    onSubmit: (updatedData: { option: string, probability: number, quantity?: number }[]) => void;
-    data: { option: string, probability: number, quantity?: number }[];
+    onSubmit: (updatedData: { option: string, probability: number, quantity?: number, image: { uri: string, sizeMultiplier: number ,offsetX: number} }[]) => void;
+
+    data: { option: string, probability: number, quantity?: number, image: { uri: string, sizeMultiplier: number,offsetX: number } }[];
 };
 
 const ModalPrizeQuantity = ({ isOpen, onClose, onSubmit, data }: Props) => {

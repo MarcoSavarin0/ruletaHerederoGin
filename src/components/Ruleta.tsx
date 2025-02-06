@@ -16,26 +16,31 @@ const Ruleta = () => {
     const handleCloseModal = () => {
         setIsModalOpen(false);
     };
-    
+
     const { mustSpin, prizeNumber, handleSpinClick, data, setMustSpin, updatePrizeOptions } = wheelContext;
-    const handleSubmit = (updatedData: { option: string, probability: number, quantity?: number }[]) => {
+    const handleSubmit = (updatedData: { option: string, probability: number, quantity?: number, image: { uri: string, sizeMultiplier: number,offsetX: number } }[]) => {
         updatePrizeOptions(updatedData);
     };
     return (
         <div className='flex flex-col'>
-
-            <div className='ruleta-div'>
+            <div className='mx-auto flex flex-col justify-center items-center gap-20'>
+                <img src="/Ruleta Heredero - Cosquin-18.png" alt="ruleta" className="w-1/2" />
+                <img src="/Ruleta Heredero - Cosquin-19.png" alt="ruleta" className="w-1/2" />
+            </div>
+            <div className='ruleta-div mx-auto'>
                 <Wheel
                     mustStartSpinning={mustSpin}
                     prizeNumber={prizeNumber}
-                    data={data}
-                    backgroundColors={['#f85104', '#fbf7ef']}
+                    data={data} 
+                    backgroundColors={['#ff5100']}
+                    textColors={['#ffffff']}
+                    outerBorderColor='white'
+                    innerBorderColor='white'
+                    radiusLineColor='white'
                     onStopSpinning={() => {
                         setShow(true);
                         setMustSpin(false);
                     }}
-                    textDistance={55}
-                    fontSize={20}
                 />
             </div>
             <div className='wrap-button'>
@@ -43,9 +48,11 @@ const Ruleta = () => {
                 {
                     show && !mustSpin &&
                     <WinModal
+
                         isOpen={show}
                         onClose={() => setShow(false)}
                         prize={data[prizeNumber].option}
+                        image={data[prizeNumber].image.uri}
                     />
                 }
             </div>
@@ -56,10 +63,11 @@ const Ruleta = () => {
                 onSubmit={handleSubmit}
                 data={data}
             />
-
-            <button onClick={handleOpenModal} className="bg-blue-500 text-white px-4 py-2 rounded">
-                Set Prize Quantity
-            </button>
+            {
+                !mustSpin && <button onClick={handleOpenModal} className="bg-blue-500 text-white px-4 py-2 rounded fixed-bottom-right">
+                    Set Prize Quantity
+                </button>
+            }
         </div>
     )
 }

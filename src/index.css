@@ -1,5 +1,23 @@
 @import "tailwindcss";
 
+
+@font-face {
+    font-family: "bebas-Regular";
+    src: url("../public/fonts/BebasNeue-Regular.otf") format("otf");
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: "bebas-bold";
+    src: url("../public/fonts/BebasNeue\ Bold.otf") format("otf");
+    font-weight: bold;
+    font-style: normal;
+  }
+
+
+
+
 :root {
     
     line-height: 1.5;
@@ -23,6 +41,7 @@ body {
     place-items: center;
     min-width: 320px;
     min-height: 100vh;
+    font-family: 'bebas-Regular', sans-serif;
 }
 
 
@@ -68,4 +87,14 @@ button:focus-visible {
 
 .wrap-button p {
     font-size: 40px;
+}
+
+.fixed-bottom-right {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000; 
+}
+.gTLZXx {
+    filter: brightness(0) invert(1);
 }
