@@ -18,20 +18,20 @@ const Ruleta = () => {
     };
 
     const { mustSpin, prizeNumber, handleSpinClick, data, setMustSpin, updatePrizeOptions } = wheelContext;
-    const handleSubmit = (updatedData: { option: string, probability: number, quantity?: number, image: { uri: string, sizeMultiplier: number,offsetX: number } }[]) => {
+    const handleSubmit = (updatedData: { option: string, probability: number, quantity?: number, image: { uri: string, sizeMultiplier: number, offsetY: number } }[]) => {
         updatePrizeOptions(updatedData);
     };
     return (
-        <div className='flex flex-col'>
+        <div className='flex flex-col gap-28'>
             <div className='mx-auto flex flex-col justify-center items-center gap-20'>
-                <img src="/Ruleta Heredero - Cosquin-18.png" alt="ruleta" className="w-1/2" />
                 <img src="/Ruleta Heredero - Cosquin-19.png" alt="ruleta" className="w-1/2" />
+                <img src="/Ruleta Heredero - Cosquin-18.png" alt="ruleta" className="w-1/3" />
             </div>
             <div className='ruleta-div mx-auto'>
                 <Wheel
                     mustStartSpinning={mustSpin}
                     prizeNumber={prizeNumber}
-                    data={data} 
+                    data={data}
                     backgroundColors={['#ff5100']}
                     textColors={['#ffffff']}
                     outerBorderColor='white'
@@ -41,6 +41,7 @@ const Ruleta = () => {
                         setShow(true);
                         setMustSpin(false);
                     }}
+                    outerBorderWidth={10}
                 />
             </div>
             <div className='wrap-button'>

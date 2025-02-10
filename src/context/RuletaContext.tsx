@@ -5,11 +5,11 @@ interface WheelContextType {
     mustSpin: boolean;
     prizeNumber: number;
     handleSpinClick: () => Promise<void>;
-    data: { option: string; probability: number; quantity?: number; image: { uri: string; sizeMultiplier: number ,offsetX: number} }[];
+    data: { option: string; probability: number; quantity?: number; image: { uri: string; sizeMultiplier: number ,offsetY: number} }[];
     setMustSpin: (value: boolean) => void;
     showWheel: boolean;
     setShowWheel: (value: boolean) => void;
-    updatePrizeOptions: (updatedData: { option: string, probability: number, quantity?: number, image: { uri: string, sizeMultiplier: number,offsetX: number } }[]) => void;
+    updatePrizeOptions: (updatedData: { option: string, probability: number, quantity?: number, image: { uri: string, sizeMultiplier: number,offsetY: number } }[]) => void;
 
 }
 
@@ -35,7 +35,7 @@ export const WheelProvider = ({ children }: { children: ReactNode }) => {
             setMustSpin(true);
         }
     };
-    const updatePrizeOptions = (updatedData: { option: string, probability: number, quantity?: number, image: { uri: string, sizeMultiplier: number,offsetX: number } }[]) => {
+    const updatePrizeOptions = (updatedData: { option: string, probability: number, quantity?: number, image: { uri: string, sizeMultiplier: number,offsetY: number } }[]) => {
         setData(updatedData);
     };
 
