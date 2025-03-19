@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import "../ModalPrizeQuantity.css";
 
 type Props = {
     isOpen: boolean;
     onClose: () => void;
-    onSubmit: (updatedData: { option: string, probability: number, quantity?: number, image: { uri: string, sizeMultiplier: number ,offsetY: number} }[]) => void;
+    onSubmit: (updatedData: { option: string, probability: number, quantity?: number, image: { uri: string, sizeMultiplier: number, offsetY: number } }[]) => void;
 
-    data: { option: string, probability: number, quantity?: number, image: { uri: string, sizeMultiplier: number,offsetY: number } }[];
+    data: { option: string, probability: number, quantity?: number, image: { uri: string, sizeMultiplier: number, offsetY: number } }[];
 };
 
 const ModalPrizeQuantity = ({ isOpen, onClose, onSubmit, data }: Props) => {
@@ -28,31 +29,27 @@ const ModalPrizeQuantity = ({ isOpen, onClose, onSubmit, data }: Props) => {
     }
 
     return (
-        <div className="fixed inset-0 flex items-center justify-center z-50 text-black">
-            <div className="fixed inset-0 bg-black opacity-50" onClick={onClose}></div>
-            <div className="bg-white p-6 rounded-lg shadow-lg z-10">
-                <h2 className="text-2xl font-bold mb-4">Set Prize Quantity</h2>
+        <div className="modal-overlay" onClick={onClose}>
+            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+                <h2>Set Prize Quantity</h2>
                 <form onSubmit={handleSubmit}>
-                    {
-                        updatedData.map((item, index) => (
-                            <label key={index} className="block mb-2 text-black">
-                                {item.option}:
-                                <input
-                                    type="number"
-                                    value={item.quantity || 0}
-                                    onChange={(e) => handleQuantityChange(index, Number(e.target.value))}
-                                    className="border p-2 w-full"
-                                    min="0"
-                                    disabled={item.option === 'Segui participando'}
-                                />
-                            </label>
-                        ))
-                    }
-                    <div className="flex justify-end mt-4">
-                        <button type="button" onClick={onClose} className="bg-gray-500 text-white px-4 py-2 rounded mr-2">
+                    {updatedData.map((item, index) => (
+                        <label key={index} className="modal-label">
+                            {item.option}:
+                            <input
+                                type="number"
+                                value={item.quantity || 0}
+                                onChange={(e) => handleQuantityChange(index, Number(e.target.value))}
+                                min="0"
+                                disabled={item.option === 'Segui participando'}
+                            />
+                        </label>
+                    ))}
+                    <div className="modal-buttons">
+                        <button type="button" onClick={onClose} className="cancel-button">
                             Cancel
                         </button>
-                        <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">
+                        <button type="submit" className="submit-button">
                             Submit
                         </button>
                     </div>

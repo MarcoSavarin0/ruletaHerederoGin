@@ -23,10 +23,7 @@ const Ruleta = () => {
     };
     return (
         <div className='flex flex-col gap-28'>
-            <div className='mx-auto flex flex-col justify-center items-center gap-20'>
-                <img src="/Ruleta Heredero - Cosquin-19.png" alt="ruleta" className="w-1/2" />
-                <img src="/Ruleta Heredero - Cosquin-18.png" alt="ruleta" className="w-1/3" />
-            </div>
+          
             <div className='ruleta-div mx-auto'>
                 <Wheel
                     mustStartSpinning={mustSpin}
@@ -45,7 +42,7 @@ const Ruleta = () => {
                 />
             </div>
             <div className='wrap-button'>
-                <button onClick={handleSpinClick}>SPIN</button>
+                <button onClick={handleSpinClick}>GIRAR</button>
                 {
                     show && !mustSpin &&
                     <WinModal
@@ -57,7 +54,9 @@ const Ruleta = () => {
                     />
                 }
             </div>
-
+            <div className='last-text'>
+                <h2>¡Generando <strong>buenos momentos!</strong></h2>
+            </div>
             <ModalPrizeQuantity
                 isOpen={isModalOpen}
                 onClose={handleCloseModal}
@@ -65,8 +64,8 @@ const Ruleta = () => {
                 data={data}
             />
             {
-                !mustSpin && <button onClick={handleOpenModal} className="bg-blue-500 text-white px-4 py-2 rounded fixed-bottom-right">
-                    Set Prize Quantity
+                !mustSpin && <button onClick={handleOpenModal} className=" text-white px-4 py-2 rounded fixed-bottom-right">
+                    Config
                 </button>
             }
         </div>

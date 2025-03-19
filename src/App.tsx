@@ -1,9 +1,9 @@
-import Ruleta  from './components/Ruleta'
+import Ruleta from './components/Ruleta'
 function App() {
 
     return (
         <>
-        
+          
             <Ruleta />
         </>
     )
