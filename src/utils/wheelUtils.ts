@@ -4,19 +4,18 @@ import bolsa from "../assets/images/bolsa.png"
 import panuelo from "../assets/images/pañuelo.png"
 import abanico from "../assets/images/abanico.png"
 import cupon20 from "../assets/images/cupon20.png"
+import consumicion from "../assets/images/consumicion.png"
 import australiano from "../assets/images/australiano.png"
 
 
 export const prizeOptions = [
-{option: 'Segui participando', probability: 0.325, image: {uri: seguiparticipando, sizeMultiplier: 2, offsetY: 70}},
-{option: 'Año Gratis', probability: 0.05, quantity: 5, image: {uri: herederoBotella, sizeMultiplier: 2, offsetY: 70}},
-{option: 'Segui participando', probability: 0.325, image: {uri: seguiparticipando, sizeMultiplier: 2, offsetY: 70}},
-{option: 'Totebag', probability: 0.10, quantity: 5, image: {uri: bolsa, sizeMultiplier: 2, offsetY: 70}},
-{option: 'Pañuelo', probability: 0.10, quantity: 5, image: {uri: panuelo, sizeMultiplier: 2, offsetY: 70} },
-{option: 'Abanico', probability: 0.10, quantity: 5, image: {uri: abanico, sizeMultiplier: 2, offsetY: 70}},
-{option: 'Segui participando', probability: 0.325, image: {uri: seguiparticipando, sizeMultiplier: 2, offsetY: 70}},
-{option: 'Cupon Descuento', probability: 0.10, quantity: 5, image: {uri: cupon20, sizeMultiplier: 2, offsetY: 70}},
-{option: 'Piluso', probability: 0.10, quantity: 5, image: {uri: australiano, sizeMultiplier: 2, offsetY: 70}},
+    {option: 'Segui participando', probability: 0.25, image: {uri: seguiparticipando, sizeMultiplier: 2, offsetY: 70}},
+    {option: 'Totebag', probability: 0.10, quantity: 5, image: {uri: bolsa, sizeMultiplier: 2, offsetY: 70}},
+    {option: 'Pañuelo', probability: 0.10, quantity: 5, image: {uri: panuelo, sizeMultiplier: 2, offsetY: 70} },
+    {option: 'Segui participando', probability: 0.25, image: {uri: seguiparticipando, sizeMultiplier: 2, offsetY: 70}},
+    {option: 'Abanico', probability: 0.10, quantity: 5, image: {uri: abanico, sizeMultiplier: 2, offsetY: 70}},
+    {option: 'Consumición', probability: 0.10, quantity: 5, image: {uri: consumicion, sizeMultiplier: 2, offsetY: 70}},
+    {option: 'Australiano/Piluso', probability: 0.10, quantity: 5, image: {uri: australiano, sizeMultiplier: 2, offsetY: 70}},
 ];
 
 export const getRandomPrize = (data: { option: string; probability: number; quantity?: number }[]) => {
