@@ -1,5 +1,7 @@
 # React + TypeScript + Vite
 
+# add your android studio path to CAPACITOR_ANDROID_STUDIO_PATH
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
@@ -48,3 +50,5 @@ export default tseslint.config({
   },
 })
 ```
+
+
