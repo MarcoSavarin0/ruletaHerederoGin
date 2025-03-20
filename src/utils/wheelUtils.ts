@@ -1,9 +1,7 @@
 import seguiparticipando from "../assets/images/sigueparticipando.png";
-import herederoBotella from "../assets/images/ginHerederoBotella.png"
 import bolsa from "../assets/images/bolsa.png"
 import panuelo from "../assets/images/pañuelo.png"
 import abanico from "../assets/images/abanico.png"
-import cupon20 from "../assets/images/cupon20.png"
 import consumicion from "../assets/images/consumicion.png"
 import australiano from "../assets/images/australiano.png"
 
